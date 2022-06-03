@@ -43,9 +43,7 @@ if ($uploadOk == 0) {
 } else {
   try {
 print_r($_FILES);
-    echo $_FILES["fileToUpload"]["name"];
     $name_file=end(explode("/",$_FILES["fileToUpload"]["name"]));
-    echo $name_file;
     $name_file=explode(".",$name_file);
     $f =fopen($_FILES["fileToUpload"]["tmp_name"],"r");
     // fpassthru($f);
