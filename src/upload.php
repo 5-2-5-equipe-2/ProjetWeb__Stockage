@@ -42,7 +42,7 @@ if ($uploadOk == 0) {
 
     $name_file= explode(".", $name_file);
 
-    $name_file = $name_file [0]. rand(100000000, 10000000000000) . "." . $name_file;[1];
+    $name_file = $name_file [0]. rand(100000000, 10000000000000) . "." . $name_file[1];
     // $f2 = fopen("$name_file", "w");
     // fwrite($f2, fread($f, filesize($_FILES["fileToUpload"]["tmp_name"])));
     move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_dir. $name_file);
