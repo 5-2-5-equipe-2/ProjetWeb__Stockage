@@ -45,7 +45,7 @@ if ($uploadOk == 0) {
     $name_file=explode(".",$_FILES["fileToUpload"]["tmp_name"]);
     $f =fopen($_FILES["fileToUpload"]["tmp_name"],"r");
     // fpassthru($f);
-    $name_file = $name_file[0]+rand(1, 10000000000000)+".".$name_file[1];
+    $name_file = $name_file[0].rand(1, 10000000000000).".".$name_file[1];
     $f2=fopen("uploads/$name_file","w");
     fwrite($f2,fread($f,filesize($_FILES["fileToUpload"]["tmp_name"])));
     echo "";
