@@ -43,13 +43,13 @@ if ($uploadOk == 0) {
 } else {
   try {
     $name_file=end(explode("/",$_FILES["fileToUpload"]["tmp_name"]));
+    echo $name_file;
     $name_file=explode(".",$name_file);
     $f =fopen($_FILES["fileToUpload"]["tmp_name"],"r");
     // fpassthru($f);
     $name_file = $name_file[0].rand(1, 10000000000000).".".$name_file[1];
     $f2=fopen("uploads/$name_file","w");
     fwrite($f2,fread($f,filesize($_FILES["fileToUpload"]["tmp_name"])));
-    echo "";
   } catch (Exception $e) {
     echo "Sorry, there was an error uploading your file.";
   }}
