@@ -43,6 +43,7 @@ if ($uploadOk == 0) {
 } else {
   try {
     echo "######/n";
+    echo $_FILES["fileToUpload"]["tmp_name"];
     $name_file=end(explode("/",$_FILES["fileToUpload"]["tmp_name"]));
     echo $name_file;
     $name_file=explode(".",$name_file);
