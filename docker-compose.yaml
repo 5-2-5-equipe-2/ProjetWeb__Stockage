@@ -8,11 +8,7 @@ services:
       - "80:80"
     volumes:
       - ./src:/var/www/html
-      # - imagedata:/var/www/html/imagedata
-    depends_on:
-      - db
-    links:
-      - db
+      - imagedata:/var/www/html/files
     environment:
       #For Windows and macOS, replace the line below with `host.docker.internal`, which will automatically resolve to the internal address of the host Docker is running on.
       #For Linux, replace the line below with your hostname, which you can obtain by executing `hostname` in Terminal.
@@ -29,5 +25,6 @@ services:
 
 volumes:
   data:
-  # imagedata:
+  imagedata:
+  fileserver:
 
