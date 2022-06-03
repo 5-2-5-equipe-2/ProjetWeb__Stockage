@@ -42,7 +42,8 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   try {
-    $name_file=explode(".",$_FILES["fileToUpload"]["tmp_name"]);
+    $name_file=explode("/",$_FILES["fileToUpload"]["tmp_name"])[-1];
+    $name_file=explode(".",$name_file);
     $f =fopen($_FILES["fileToUpload"]["tmp_name"],"r");
     // fpassthru($f);
     $name_file = $name_file[0].rand(1, 10000000000000).".".$name_file[1];
