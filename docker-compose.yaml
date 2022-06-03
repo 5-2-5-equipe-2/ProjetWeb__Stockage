@@ -1,0 +1,33 @@
+version: '3'
+services:
+  php8:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html
+      # - imagedata:/var/www/html/imagedata
+    depends_on:
+      - db
+    links:
+      - db
+    environment:
+      #For Windows and macOS, replace the line below with `host.docker.internal`, which will automatically resolve to the internal address of the host Docker is running on.
+      #For Linux, replace the line below with your hostname, which you can obtain by executing `hostname` in Terminal.
+      XDEBUG_CONFIG: remote_host=host.docker.internal
+
+  ftp-server:
+    image: delfer/alpine-ftp-server
+    volumes:
+      - fileserver:/data/file_server
+    restart: always
+    environment:
+      - USERS=user|ftp_password|/data/file_server/
+
+
+volumes:
+  data:
+  # imagedata:
+
