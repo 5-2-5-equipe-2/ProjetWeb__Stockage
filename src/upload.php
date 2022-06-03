@@ -1,5 +1,5 @@
 <?php
-$target_dir = "/var/www/html/files/";
+$target_dir = "/home/fileszfhjsdbn/www/ProjetWeb__Stockage/src/files";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $name_file = basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
