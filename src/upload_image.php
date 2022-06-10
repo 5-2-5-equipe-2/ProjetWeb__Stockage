@@ -1,5 +1,6 @@
 <?php
-$origin = "http://" . $_SERVER['HTTP_HOST'] . ":3000";
+//$origin = "http://" . $_SERVER['HTTP_HOST'] . ":3000";
+$origin = "http://localhost:3000";
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header("Access-Control-Allow-Origin: $origin");
     header('Access-Control-Allow-Methods: POST, GET, DELETE, PUT, PATCH, OPTIONS');
