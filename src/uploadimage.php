@@ -10,4 +10,5 @@ file_put_contents("files/$file_name", base64_decode($file_content_b64));
 // redirect to the page where the image is uploaded
 print_r($_SERVER);
 echo "{$_SERVER["HTTP_HOST"]}/files/$file_name";
+return "{$_SERVER["HTTP_HOST"]}/files/$file_name";
 // header("Location: getfile.php?file_name=$file_name");
