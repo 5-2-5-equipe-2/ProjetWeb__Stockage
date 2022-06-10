@@ -9,7 +9,7 @@ $file_name = $file_name[0] . rand(1000000000000, 10000000000000) . "." . $file_n
 file_put_contents("files/$file_name", base64_decode($file_content_b64));
 // redirect to the page where the image is uploaded
 // print_r($_SERVER);
-echo json_encode("{$_SERVER["HTTP_HOST"]}/files/$file_name");
+echo json_encode(array("url"=>"{$_SERVER["HTTP_HOST"]}/files/$file_name"));
 // return "{$_SERVER["HTTP_HOST"]}/files/$file_name";
 // header("Location: getfile.php?file_name=$file_name");
 }
