@@ -18,9 +18,10 @@ header("Access-Control-Allow-Origin: $origin");
 header('Access-Control-Allow-Credentials: true');
 header('Content-Type: application/json');
 $data = file_get_contents('php://input');
+$data = json_decode($data, true);
 if ($data) {
-    $file_name = $_POST["file_name"];
-    $file_content_b64 = $_POST["file_content"];
+    $file_name = $data["file_name"];
+    $file_content_b64 = $data["file_content"];
     $file_name = explode(".", $file_name);
 
     $file_name = $file_name[0] . rand(1000000000000, 10000000000000) . "." . $file_name[1];
