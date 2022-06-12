@@ -17,8 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 header("Access-Control-Allow-Origin: $origin");
 header('Access-Control-Allow-Credentials: true');
 header('Content-Type: application/json');
-
-if (isset($_POST["file_name"])) {
+$data = file_get_contents('php://input');
+if ($data) {
     $file_name = $_POST["file_name"];
     $file_content_b64 = $_POST["file_content"];
     $file_name = explode(".", $file_name);
