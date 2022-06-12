@@ -20,6 +20,9 @@ header('Content-Type: application/json');
 $data = file_get_contents('php://input');
 $data = json_decode($data, true);
 if ($data) {
+    if (!$data["data"]=="image/png;base64") {
+        echo json_encode(array("error" => "Method not supported!!"));
+    }else{
     $file_name = $data["file_name"];
     $file_content_b64 = $data["file_content"];
     $file_name = explode(".", $file_name);
@@ -31,6 +34,7 @@ if ($data) {
     echo json_encode(array("url" => "{$_SERVER["HTTP_HOST"]}/files/$file_name"));
     // return "{$_SERVER["HTTP_HOST"]}/files/$file_name";
     // header("Location: getfile.php?file_name=$file_name");
+    }
 } else {
-    echo json_encode(array("error" => "Method not supporterd!!"));
+    echo json_encode(array("error" => "Method not supported!!"));
 }
